@@ -18,4 +18,7 @@
 Route::get('/', 'TeamController@index');
 Route::get('/teams/{id}', 'TeamController@show');
 Route::get('/players/{id}', 'PlayerController@show');
+Route::post('/register', 'RegisterController@store');
+Route::get('/register', 'RegisterController@create');
+
 
