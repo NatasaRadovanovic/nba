@@ -16,7 +16,7 @@ class CommentController extends Controller
         Comment::create([
                     'content' => request('content'),
                     'team_id' => $team_id,
-                    'user_id' => request('user_id'),
+                    'user_id' => auth()->user()->id,
         
                 ]);
                 
