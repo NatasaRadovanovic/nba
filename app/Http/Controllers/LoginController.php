@@ -25,6 +25,7 @@ class LoginController extends Controller
             'message' => 'Bad credentials. Please try again.'
          ]);
         }
+        
         return redirect('/');
     }
    public function destroy()
