@@ -7,6 +7,11 @@ use App\User;
 
 class LoginController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('guest', ['except' => 'destroy']);
+    }
+   
     public function create()
     {
         return view('auth.create-login');
@@ -25,6 +30,6 @@ class LoginController extends Controller
    public function destroy()
    {
        auth()->logout();
-       return redirect('/');
+       return redirect('/login');
    }
 }

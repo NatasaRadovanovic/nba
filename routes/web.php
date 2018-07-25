@@ -12,11 +12,11 @@ Route::get('/players/{id}', 'PlayerController@show');
 
 Route::post('/register', 'RegisterController@store');
 
-Route::get('/register', 'RegisterController@create');
+Route::get('/register', 'RegisterController@create')->name('register');
 
 Route::post('/login', 'LoginController@store');
 
-Route::get('/login', 'LoginController@create');
+Route::get('/login', 'LoginController@create')->name('login');
 
 Route::get('/logout', 'LoginController@destroy');
 
