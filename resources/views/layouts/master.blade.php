@@ -12,10 +12,10 @@
     <div class="blog-masthead">
       <div class="container">
         <nav class="nav blog-nav">
-          <a class="nav-link active" href="#">Home</a>
+          <a class="nav-link active" href="/">Home</a>
 
           @if(auth()->check())
-          <a href="#" class="nav-link">{{auth()->user()->name}}</a>
+          <a href="#" class="nav-link">{{ auth()->user()->name }}</a>
           <a href="/logout" class="nav-link">Logout</a>
           @else
           <a href="/login" class="nav-link">Login</a>

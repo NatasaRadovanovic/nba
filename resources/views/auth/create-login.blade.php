@@ -8,13 +8,8 @@
 </style>
 
 <div class="wrapp-form">
-<form method="POST" action="/register">
+<form method="POST" action="/login">
   {{csrf_field()}} 
-  <div class="form-group">
-    <label for="name">Name</label>
-    <input name='name' type="text" class="form-control" id="name">
-    @include('partials.error-message' , ['fieldName' => 'name'])
-  </div>
   <div class="form-group">
     <label for="email">Email</label>
     <input type="email" name='email' class="form-control" id="email">
@@ -25,13 +20,7 @@
     <input type="password" name='password' class="form-control" id="password">
     @include('partials.error-message' , ['fieldName' => 'password'])
   </div>
-
-  <div class="form-group">
-    <label for="password">Confirm password</label>
-    <input type="password" name='password_confirmation' class="form-control" id="password_confirmation">
-    @include('partials.error-message' , ['fieldName' => 'password_confirmation'])
-  </div>
-  <button type="submit" class="btn btn-primary">Register</button>
+  <button type="submit" class="btn btn-primary">Login</button>
 </form>
 </div>
 @endsection
