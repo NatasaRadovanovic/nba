@@ -24,5 +24,13 @@ Route::post('/teams/{id}/comments', 'CommentController@store');
 
 Route::get('/teams/{id}/{user}', 'CommentController@show');
 
+Route::get('/news', 'NewController@create');
+
+Route::get('/news', 'NewController@index');
+
+Route::get('/news/{id}', 'NewController@show');
+
+
+
 
 

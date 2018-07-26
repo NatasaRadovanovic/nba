@@ -1,6 +1,6 @@
 You have a new comment on your <a href="{{ url('/teams/' . $team->id) }}"> 
 
-{{ $team->name }}</a> post.
+{{ $team->name }}</a> .
 
 Comment content:
 <p>
