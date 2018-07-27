@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Register;
 use App\User;
+use Illuminate\Support\Facades\Mail; 
+use App\Mail\VerifyMail; 
 
 class RegisterController extends Controller
 {
@@ -32,8 +34,19 @@ class RegisterController extends Controller
             'password' => bcrypt(request('password')) 
         ]);
         
-        auth()->login($user); 
+        Mail::to($user->email)->send(new VerifyMail($user));
+        
+        return redirect('/login');
+     }
 
-        return redirect('/');
-    }
+     public function verify($id)
+     {
+         $user = User::find($id);
+         
+         if ($user->is_verified === 0 ){
+             $user->is_verified = 1;
+             $user->save();
+         }
+         return redirect('/');
+     }
 }

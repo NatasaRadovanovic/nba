@@ -30,6 +30,8 @@ Route::get('/news', 'NewController@index');
 
 Route::get('/news/{id}', 'NewController@show');
 
+Route::get('/verification/{id}', 'RegisterController@verify');
+
 
 
 
