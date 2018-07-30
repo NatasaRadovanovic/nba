@@ -11,8 +11,8 @@ class NewsTableSeeder extends Seeder
      */
     public function run()
     {
-        App\User::all()->each(function (App\User $user){ 
-            $user->news()->saveMany(factory(App\News::class, 5)->make());
+        App\User::all()->each(function (App\User $u){ 
+            $u->news()->saveMany(factory(App\News::class, 10)->make());
         });
     }
 }

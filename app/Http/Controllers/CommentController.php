@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Team;
-use App\Comment;
 use App\User;
+use App\Comment;
 use Illuminate\Support\Facades\Mail; 
 use App\Mail\CommentReceived; 
 

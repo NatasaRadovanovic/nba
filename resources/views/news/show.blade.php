@@ -13,5 +13,15 @@
     <h2>Korisniik koji je kreirao vest</h2>
     <p>{{$new->user->name}}</p>
     <p>{{$new->user->email}}</p>
+    
+    @if(count($new->teams))
+        <ul class='list-unstyled'>
+            @foreach($new->teams as $team)
+                <li  class='btn btn-primary'>
+                    <a style='color: red;' href='/teams/{{ $team->id }}'>{{ $team->name }}</a>
+                </li>
+            @endforeach
+        </ul>
+    @endif
 </body>
 </html>

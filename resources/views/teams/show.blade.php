@@ -5,12 +5,14 @@
     <p>{{ $team->email }}<p>
     <p>{{ $team->address }}<p>
     <p>{{ $team->city }}<p><br>
+    <a class="btn btn-primary" href="/news/team/{{ $team->name }}">News</a>
     
     <h3>Igraci</h3>
     @foreach($team->players as $player)
     <p><a href="/players/{{ $player->id }}">{{ $player->first_name }} 
     {{ $player->last_name }}</a></p>
     @endforeach
+   
 
 <div style="width:30%;">
     <form method="POST" action="/teams/{{$team->id}}/comments">
@@ -28,7 +30,7 @@
  @foreach($team->comments as $comment) 
 
 <div class='card-block'>
-  <p><b>{{ $comment->user->name }}</b></p>
+<p style="font-size:1rem;">{{ $comment->user->name }}<p>
   <p style="font-size:1rem;">{{ $comment->content }}<p>
   <p style="font-size:0.7rem;">{{ $comment->created_at }}<p>
 </div>

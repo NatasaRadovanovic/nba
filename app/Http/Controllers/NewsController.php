@@ -5,13 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\News;
+use App\Team;
 
-class NewController extends Controller
+
+class NewsController extends Controller
 {
-    public function create()
-    {
-        return view('news.index');
-    }
+    
 
     public function index()
     {
@@ -22,7 +21,16 @@ class NewController extends Controller
 
     public function show($id)
     {
-        $new = News::with('user')->find($id);
+        $new = News::find($id);
         return view('news.show', compact('new'));
+    }
+
+    
+
+    public function showNewsForTeam($name)
+    {
+        $team = Team::where('name', $name)->first();
+        $news = $team->news()->latest()->paginate(10);
+        return view('news.index', compact('news'));
     }
 }

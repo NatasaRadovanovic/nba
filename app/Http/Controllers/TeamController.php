@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Team;
 use App\User;
+use App\News;
+
 
 class TeamController extends Controller
 {
