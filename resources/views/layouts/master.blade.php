@@ -7,36 +7,69 @@
     <meta name="author" content="">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link href="/css/blog.css" rel="stylesheet">
- 
+    <link href="https://fonts.googleapis.com/css?family=Eczar" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
-    <div class="blog-masthead">
-      <div class="container">
-        <nav class="nav blog-nav">
-          <a class="nav-link active" href="/">Home</a>
+    <style>
+    body
+    {
+      background-color:#f2f2f2;
+      font-family: 'Eczar', serif;
+    }
+      .wrapp
+      {
+        background-color:#669999;
+        padding:5px;
+      }
 
-          @if(auth()->check())
-          <a href="#" class="nav-link">{{ auth()->user()->name }}</a>
-          <a href="/logout" class="nav-link">Logout</a>
-          @else
-          <a href="/login" class="nav-link">Login</a>
-          <a href="/register" class="nav-link">Register</a>
-          @endif
-        </nav>
-      </div>
-    </div>
+      .nav-item a
+      {
+        color:#003366;
+        font-size:1.1rem;
+        padding-left:30px;
+      }
 
-<div>
-@yield('content')
-</div>
+       .nav-item a:hover
+       {
+         font-size:1.2rem;
+       }
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-  </body>
+       .content
+       {
+         width:95%;
+         margin:0 auto;
+         padding-top:20px;
+       }
+    </style>
+  </head>
+  
+  <body>
+
+  <div class="wrapp">
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link active" href="/"><i class="fas fa-home"></i> Home</a>
+      </li>
+      @if(auth()->check())
+        <li class="nav-item">
+          <a class="nav-link" href="#">{{ auth()->user()->name }}</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="/logout">Logout</a>
+      </li>
+      @else
+      <li class="nav-item">
+          <a class="nav-link" href="/login"><i class="fas fa-user-plus"></i> Login</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="/register">Register</a>
+      </li>
+      @endif
+   </ul>
+  </div>
+  <div class="content">
+    @yield('content')
+  </div> 
+
+   </body>
 </html>

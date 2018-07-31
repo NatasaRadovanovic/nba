@@ -2,7 +2,7 @@
 @section('content')<br>
 <style>
 .wrapp-form{
-  width:50%;
+  width:35%;
   margin:0 auto;
 }
 </style>

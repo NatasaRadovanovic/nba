@@ -1,32 +1,45 @@
 @extends('layouts.master')
+
+<style>
+   .card-block
+    {
+        border: 1px solid silver;
+        margin-bottom: 5px;
+        width: 50%;
+        padding: 5px;
+        border-radius: 10px;
+        box-shadow: 5px 5px 5px grey;
+    }
+</style>
 @section('content')
     
-    <p>{{ $team->name }}<p>
-    <p>{{ $team->email }}<p>
-    <p>{{ $team->address }}<p>
-    <p>{{ $team->city }}<p><br>
-    <a class="btn btn-primary" href="/news/team/{{ $team->name }}">News</a>
+    <h2>{{ $team->name }}</h2><br>
+    <p><i class="fas fa-envelope"></i> Email: {{ $team->email }}</p>
+    <p>Address: {{ $team->address }}</p>
+    <p>City: {{ $team->city }}</p>
+    <a style="font-size:1.2rem; color:black;text-decoration:none" 
+    href="/news/team/{{ $team->name }}">News <b><span style="font-size:0.9rem;">>>><span><b></a><br><br>
     
-    <h3>Igraci</h3>
+    <h2 > Players</h2>
     @foreach($team->players as $player)
     <p><a href="/players/{{ $player->id }}">{{ $player->first_name }} 
-    {{ $player->last_name }}</a></p>
+    {{ $player->last_name }}</a></p><br>
     @endforeach
    
 
 <div style="width:30%;">
     <form method="POST" action="/teams/{{$team->id}}/comments">
-  {{csrf_field()}}
+  
   <div class="form-group">
-    <label for="text">Comment</label>
-    <textarea name='content' class="form-control" id="content"></textarea>
+    <textarea rows="4" cols="50" name='content' class="form-control" id="content" 
+    placeholder="comment"></textarea>
     @include('partials.error-message' , ['fieldName' => 'content'])
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </div>
 
-<br><h2>Comments</h2><br>
+<br><h3>Comments</h3><br>
  @foreach($team->comments as $comment) 
 
 <div class='card-block'>
