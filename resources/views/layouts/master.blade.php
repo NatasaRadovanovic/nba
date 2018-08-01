@@ -39,14 +39,46 @@
          width:95%;
          margin:0 auto;
          padding-top:20px;
+        
        }
+
+       .sidebar
+    {
+        height: 100%;
+        width: 20%;
+        position: fixed;
+        z-index: 1;
+        top: 55;
+        right: 0;
+        background-color: #669999;
+        overflow-x: hidden;
+        padding-top: 20px;
+    }
+    .side-content a
+    {
+        color: rgba(255,255,255,.5);
+        font-size: 0.8rem;
+        line-height: 35px;
+        text-decoration: none;
+    }
+
+    .side-content a:hover
+    {
+        color: white;
+    }
+    
+    .side-content
+    {
+        padding-left: 15px;
+    }
+ 
     </style>
   </head>
   
   <body>
 
   <div class="wrapp">
-    <ul class="nav justify-content-center">
+    <ul class="nav justify-content-center" >
       <li class="nav-item">
         <a class="nav-link active" href="/"><i class="fas fa-home"></i> Home</a>
       </li>
@@ -67,9 +99,23 @@
       @endif
    </ul>
   </div>
+  
   <div class="content">
-    @yield('content')
-  </div> 
+       @yield('content')
+                
+  @if(auth()->check())
+      <div class="sidebar">
+          <div class="side-content">
+              <h2>News</h2>
+          <ul>
+              @foreach($teams as $team)
+                <li><a href="/news/team/{{ $team->name }}">{{ $team->name }}</a></li>
+                @endforeach
+          </ul>
+        </div>
+      <div>
+         @endif
+  </div>
 
    </body>
 </html>

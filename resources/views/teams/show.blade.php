@@ -29,7 +29,7 @@
 
 <div style="width:30%;">
     <form method="POST" action="/teams/{{$team->id}}/comments">
-  
+    {{csrf_field()}}
   <div class="form-group">
     <textarea rows="4" cols="50" name='content' class="form-control" id="content" 
     placeholder="comment"></textarea>
